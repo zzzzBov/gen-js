@@ -2,7 +2,7 @@ const {expect} = require('chai')
 const all = require('../all')
 
 describe(`gen`, () => {
-  describe(`all(fn)`, () => {
+  describe(`all(test)`, () => {
     it(`should be a function`, () => {
       expect(all).to.be.a('function')
     })
