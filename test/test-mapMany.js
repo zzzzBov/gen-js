@@ -12,7 +12,7 @@ describe(`gen`, () => {
     it(`should produce a function when passed a function`, () => {
       const result = mapMany(() => {})
 
-      expect(result).to.be.a('funciton')
+      expect(result).to.be.a('function')
     })
 
     it(`should throw a "TypeError" if not provided a function`, () => {
