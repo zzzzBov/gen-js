@@ -1,0 +1,30 @@
+{
+  "name": "gen",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "zzzzBov <zzzzBov@gmail.com> (https://zzzzbov.com/)",
+  "license": "MIT",
+  "files": [
+    "all.js",
+    "any.js",
+    "filter.js",
+    "index.js",
+    "integers.js",
+    "map.js",
+    "mapMany.js",
+    "reduce.js",
+    "skip.js",
+    "skipWhile.js",
+    "take.js",
+    "takeWhile.js",
+    "unique.js"
+  ],
+  "devDependencies": {
+    "mocha": "^4.1.0"
+  }
+}
