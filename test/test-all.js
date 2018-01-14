@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 const {expect} = require('chai')
 const all = require('../all')
 
@@ -20,21 +22,21 @@ describe(`gen`, () => {
 
       const falseResult = all()([1])
 
-      expect(falseResult).to.be.false
+      expect(falseResult).to.equal(false)
 
       const trueResult = all()([])
 
-      expect(trueResult).to.be.true
+      expect(trueResult).to.equal(true)
     })
 
     it(`should check if all values match the provided test`, () => {
       const trueResult = all(x => x % 2)([1, 3, 5])
 
-      expect(trueResult).to.be.true
+      expect(trueResult).to.equal(true)
 
       const falseResult = all(x => x % 2)([1, 2, 3])
 
-      expect(falseResult).to.be.false
+      expect(falseResult).to.equal(false)
     })
 
     it(`should throw a "TypeError" if not provided a function`, () => {

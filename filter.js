@@ -1,6 +1,6 @@
 module.exports = test => {
   if (test instanceof Function) {
-    return function* (gen) {
+    return function * (gen) {
       let i = 0
       for (const value of gen) {
         if (test(value, i++)) {

@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 const {expect} = require('chai')
 const integers = require('../integers')
 
