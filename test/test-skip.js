@@ -35,7 +35,7 @@ describe(`gen`, () => {
       expect(result).to.deep.equal([3, 4, 5])
     })
 
-    it(`should throw a "RangeError" if "count" is less than 0`, () => {
+    it(`should throw a "RangeError" if "count" is negative`, () => {
       const negativeInput = () => {
         skip(-1)
       }
