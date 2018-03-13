@@ -10,6 +10,23 @@ npm i @zzzzbov/gen
 
 ## API
 
+* [`all`](#all)
+* [`any`](#any)
+* [`append`](#append)
+* [`concat`](#concat)
+* [`filter`](#filter)
+* [`integers`](#integers)
+* [`map`](#map)
+* [`mapMany`](#mapMany)
+* [`pipe`](#pipe)
+* [`prepend`](#prepend)
+* [`reduce`](#reduce)
+* [`skip`](#skip)
+* [`skipWhile`](#skipWhile)
+* [`take`](#take)
+* [`takeWhile`](#takeWhile)
+* [`unique`](#unique)
+
 ### `all`
 
 `gen.all([test(value, index)])(iterator)`
