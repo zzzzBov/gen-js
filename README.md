@@ -1,6 +1,6 @@
 # Gen
 
-`@zzzzbov/gen` is a package of generator utility functions to make working with collections easier. It is specifically designed to be used with the proposed pipeline operator (`|>`). If the pipeline operator isn't available, `gen` includes a `pipe` function which can be used instead.
+`@zzzzbov/gen` is a package of generator utility functions to make working with collections easier. It is specifically designed to be used with the proposed pipeline operator (`|>`). If the pipeline operator isn't available, `gen` includes a [`pipe`](#pipe) function which can be used instead.
 
 ## Installation
 
@@ -12,7 +12,7 @@ npm i @zzzzbov/gen
 
 ### `all`
 
-`gen.all([test])(iterator)`
+`gen.all([test(value, index)])(iterator)`
 
 ```js
 const {all} = require('@zzzzbov/gen')
@@ -34,7 +34,7 @@ const example1 = [1, 2, 3] |> all(odd) // false
 const example2 = [1, 3, 5] |> all(odd) // true
 ```
 
-If no `test` is passed, a false function is used (`_ => false`). This allows `all` to be used to check for empty collections in parity with `any`.
+If no `test` is passed, a false function is used (`_ => false`). This allows `all` to be used to check for empty collections in parity with [`any`](#any).
 
 #### Example
 
@@ -48,7 +48,7 @@ const example2 = [1, 2, 3] |> all() // false
 
 ### `any`
 
-`gen.any([test])(iterator)`
+`gen.any([test(value, index)])(iterator)`
 
 ```js
 const {any} = require('@zzzzbov/gen')
@@ -126,7 +126,7 @@ const example = [1, 2, 3] |> concat([4, 5, 6], [7, 8, 9])
 
 ### `filter`
 
-`gen.filter(test)(iterator)`
+`gen.filter(test(value, index))(iterator)`
 
 The `filter` function takes a `test` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields every item in the `iterator` that passes the `test`.
 
@@ -166,7 +166,7 @@ const example = integers(1, 5)
 
 Given that `Number.MAX_SAFE_INTEGER` is exceptionally large, iterating over `integers` without an explicit end may result in an, effectively, endless loop.
 
-For generating a specific number of integers, pair the `integers` function with the `take` function:
+For generating a specific number of integers, pair the `integers` function with the [`take`](#take) function:
 
 #### Example
 
@@ -179,7 +179,7 @@ const example = integers() |> take(5)
 
 ### `map`
 
-`gen.map(transform)(iterator)`
+`gen.map(transform(value, index))(iterator)`
 
 ```js
 const {map} = require('@zzzzbov/gen')
@@ -202,7 +202,7 @@ const example = [1, 2, 3] |> map(double)
 
 ### `mapMany`
 
-`gen.mapMany(transform)(iterator)`
+`gen.mapMany(transform(value, index))(iterator)`
 
 ```js
 const {mapMany} = require('@zzzzbov/gen')
@@ -276,7 +276,7 @@ const example = [4, 5, 6] |> prepend(1, 2, 3)
 
 ### `reduce`
 
-`gen.reduce(reducer, initial)(iterator)`
+`gen.reduce(reducer(reduction, value, index), initial)(iterator)`
 
 The `reduce` function takes a `reducer` function and `initial` value as parameters and produces a new function. The new function accepts an `iterator` as a parameter and returns the resultant reduction after having passed each value through the reducer along with the output from the previous value.
 
@@ -313,7 +313,7 @@ const example = [1, 2, 3, 4, 5] |> skip(2)
 
 ### `skipWhile`
 
-`gen.skipWhile(test)(iterator)`
+`gen.skipWhile(test(value, index))(iterator)`
 
 ```js
 const {skipWhile} = require('@zzzzbov/gen')
@@ -357,7 +357,7 @@ const example = [1, 2, 3, 4, 5] |> take(3)
 
 ### `takeWhile`
 
-`gen.takeWhile(test)(iterator)`
+`gen.takeWhile(test(value, index))(iterator)`
 
 ```js
 const {takeWhile} = require('@zzzzbov/gen')
