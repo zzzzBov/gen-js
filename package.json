@@ -1,7 +1,7 @@
 {
   "name": "@zzzzbov/gen",
   "version": "0.0.0",
-  "description": "",
+  "description": "@zzzzbov/gen is a package of generator utility functions.",
   "main": "index.js",
   "scripts": {
     "test": "standard && mocha"
