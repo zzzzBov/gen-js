@@ -116,3 +116,122 @@ const example = [1, 2, 3] |> concat([4, 5, 6], [7, 8, 9])
 [...example] // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
+### `gen.filter(test)(iterator)`
+
+The `filter` function takes a `test` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields every item in the `iterator` that passes the `test`.
+
+#### Example
+
+```js
+const filter = require('@zzzzbov/gen/filter')
+
+const odd = n => n % 2
+
+const example = [1, 2, 3] |> filter(odd)
+[...example] // [1, 3]
+```
+
+### `gen.integers([start], [end])`
+
+```js
+const {integers} = require('@zzzzbov/gen')
+// or
+const integers = require('@zzzzbov/gen/integers')
+```
+
+The `integers` generator function takes optional `start` and `end` parameters. `integers` yields the integers from `start` to `end` *inclusive*.
+
+```js
+const integers = require('@zzzzbov/gen/integers')
+
+const example = integers(1, 5)
+[...example] // [1, 2, 3, 4, 5]
+```
+
+`start` defaults to `0`
+
+`end` defaults to `Number.MAX_SAFE_INTEGER`
+
+Given that `Number.MAX_SAFE_INTEGER` is exceptionally large, iterating over `integers` without an explicit end may result in an, effectively, endless loop.
+
+For generating a specific number of integers, pair the `integers` function with the `take` function:
+
+#### Example
+
+```js
+const {integers, take} = require('@zzzzbov/gen')
+
+const example = integers() |> take(5)
+[...example] // [0, 1, 2, 3, 4]
+```
+
+### `gen.map(transform)(iterator)`
+
+```js
+const {map} = require('@zzzzbov/gen')
+// or
+const map = require('@zzzzbov/gen/map')
+```
+
+The `map` function takes a `transform` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields each item produced by the `transform`.
+
+#### Example
+
+```js
+const map = require('@zzzzbov/gen/map')
+
+const double = n => n * 2
+
+const example = [1, 2, 3] |> map(double)
+[...example] // [2, 4, 6]
+```
+
+### `gen.mapMany(transform)(iterator)`
+
+```js
+const {mapMany} = require('@zzzzbov/gen')
+// or
+const mapMany = require('@zzzzbov/gen/mapMany')
+```
+
+The `mapMany` function takes a `transform` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields each item in each collection produced by the `transform`.
+
+#### Example
+
+```js
+const mapMany = require('@zzzzbov/gen/mapMany')
+
+const pair = n => [n, -n]
+
+const example = [1, 2, 3] |> mapMany(pair)
+[...example] // [1, -1, 2, -2, 3, -3]
+```
+
+### `gen.pipe(input, ...functions)`
+
+```js
+const {pipe} = require('@zzzzbov/gen')
+// or
+const pipe = require('@zzzzbov/gen/pipe')
+```
+
+The `pipe` function is a utility to act as a stand-in for the pipe operator (`|>`).
+
+The `pipe` function takes an `input` value and a collection of `functions` and produces the resultant value of passing the output of each function as the input of the subsequent function.
+
+#### Example
+
+```js
+const pipe = require('@zzzzbov/gen/pipe')
+
+const addOne = n => n + 1
+
+const double = n => n * 2
+
+const example = pipe(
+  5,
+  addOne,
+  double
+) // 12
+```
+
