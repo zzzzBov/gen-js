@@ -10,7 +10,9 @@ npm i @zzzzbov/gen
 
 ## API
 
-### `gen.all([test])(iterator)`
+### `all`
+
+`gen.all([test])(iterator)`
 
 ```js
 const {all} = require('@zzzzbov/gen')
@@ -44,7 +46,9 @@ const example1 = [] |> all() // true
 const example2 = [1, 2, 3] |> all() // false
 ```
 
-### `gen.any([test])(iterator)`
+### `any`
+
+`gen.any([test])(iterator)`
 
 ```js
 const {any} = require('@zzzzbov/gen')
@@ -78,7 +82,9 @@ const example1 = [] |> any() // false
 const example2 = [1, 2, 3] |> any() // true
 ```
 
-### `gen.append(...items)(iterator)`
+### `append`
+
+`gen.append(...items)(iterator)`
 
 ```js
 const {append} = require('@zzzzbov/gen')
@@ -97,7 +103,9 @@ const example = [1, 2, 3] |> append(4, 5, 6)
 [...example] // [1, 2, 3, 4, 5, 6]
 ```
 
-### `gen.concat(...collections)(iterator)`
+### `concat`
+
+`gen.concat(...collections)(iterator)`
 
 ```js
 const {concat} = require('@zzzzbov/gen')
@@ -116,7 +124,9 @@ const example = [1, 2, 3] |> concat([4, 5, 6], [7, 8, 9])
 [...example] // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-### `gen.filter(test)(iterator)`
+### `filter`
+
+`gen.filter(test)(iterator)`
 
 The `filter` function takes a `test` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields every item in the `iterator` that passes the `test`.
 
@@ -131,7 +141,9 @@ const example = [1, 2, 3] |> filter(odd)
 [...example] // [1, 3]
 ```
 
-### `gen.integers([start], [end])`
+### `integers`
+
+`gen.integers([start], [end])`
 
 ```js
 const {integers} = require('@zzzzbov/gen')
@@ -165,7 +177,9 @@ const example = integers() |> take(5)
 [...example] // [0, 1, 2, 3, 4]
 ```
 
-### `gen.map(transform)(iterator)`
+### `map`
+
+`gen.map(transform)(iterator)`
 
 ```js
 const {map} = require('@zzzzbov/gen')
@@ -186,7 +200,9 @@ const example = [1, 2, 3] |> map(double)
 [...example] // [2, 4, 6]
 ```
 
-### `gen.mapMany(transform)(iterator)`
+### `mapMany`
+
+`gen.mapMany(transform)(iterator)`
 
 ```js
 const {mapMany} = require('@zzzzbov/gen')
@@ -207,7 +223,9 @@ const example = [1, 2, 3] |> mapMany(pair)
 [...example] // [1, -1, 2, -2, 3, -3]
 ```
 
-### `gen.pipe(input, ...functions)`
+### `pipe`
+
+`gen.pipe(input, ...functions)`
 
 ```js
 const {pipe} = require('@zzzzbov/gen')
@@ -235,7 +253,9 @@ const example = pipe(
 ) // 12
 ```
 
-### `gen.prepend(...items)(iterator)`
+### `prepend`
+
+`gen.prepend(...items)(iterator)`
 
 ```js
 const {prepend} = require('@zzzzbov/gen')
@@ -254,7 +274,9 @@ const example = [4, 5, 6] |> prepend(1, 2, 3)
 [...example] // [1, 2, 3, 4, 5, 6]
 ```
 
-### `gen.reduce(reducer, initial)(iterator)`
+### `reduce`
+
+`gen.reduce(reducer, initial)(iterator)`
 
 The `reduce` function takes a `reducer` function and `initial` value as parameters and produces a new function. The new function accepts an `iterator` as a parameter and returns the resultant reduction after having passed each value through the reducer along with the output from the previous value.
 
@@ -268,7 +290,9 @@ const add = (a, b) => a + b
 const example = [1, 2, 3] |> reduce(add, 0) // 6
 ```
 
-### `gen.skip(count)(iterator)`
+### `skip`
+
+`gen.skip(count)(iterator)`
 
 ```js
 const {skip} = require('@zzzzbov/gen')
@@ -287,7 +311,9 @@ const example = [1, 2, 3, 4, 5] |> skip(2)
 [...example] // [3, 4, 5]
 ```
 
-### `gen.skipWhile(test)(iterator)`
+### `skipWhile`
+
+`gen.skipWhile(test)(iterator)`
 
 ```js
 const {skipWhile} = require('@zzzzbov/gen')
@@ -308,7 +334,9 @@ const example = [1, 2, 3, 4, 5] |> skipWhile(lessThanThree)
 [...example] // [3, 4, 5]
 ```
 
-### `gen.take(count)(iterator)`
+### `take`
+
+`gen.take(count)(iterator)`
 
 ```js
 const {take} = require('@zzzzbov/gen')
@@ -327,7 +355,9 @@ const example = [1, 2, 3, 4, 5] |> take(3)
 [...example] // [1, 2, 3]
 ```
 
-### `gen.takeWhile(test)(iterator)`
+### `takeWhile`
+
+`gen.takeWhile(test)(iterator)`
 
 ```js
 const {takeWhile} = require('@zzzzbov/gen')
@@ -348,7 +378,9 @@ const example = [1, 2, 3, 4, 5] |> takeWhile(lessThanThree)
 [...example] // [1, 2]
 ```
 
-### `gen.unique(iterator)`
+### `unique`
+
+`gen.unique(iterator)`
 
 ```js
 const {unique} = require('@zzzzbov/gen')
