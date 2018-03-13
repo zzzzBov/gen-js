@@ -235,3 +235,134 @@ const example = pipe(
 ) // 12
 ```
 
+### `gen.prepend(...items)(iterator)`
+
+```js
+const {prepend} = require('@zzzzbov/gen')
+// or
+const prepend = require('@zzzzbov/gen/prepend')
+```
+
+The `prepend` function takes a collection of `items` as parameters and produces a new generator function. The new function accepts an `iterator` as a parameter and yields the `items` followed by the `iterator`.
+
+#### Example
+
+```js
+const prepend = require('@zzzzbov/gen/prepend')
+
+const example = [4, 5, 6] |> prepend(1, 2, 3)
+[...example] // [1, 2, 3, 4, 5, 6]
+```
+
+### `gen.reduce(reducer, initial)(iterator)`
+
+The `reduce` function takes a `reducer` function and `initial` value as parameters and produces a new function. The new function accepts an `iterator` as a parameter and returns the resultant reduction after having passed each value through the reducer along with the output from the previous value.
+
+#### Example
+
+```js
+const reduce = require('@zzzzbov/gen/reduce')
+
+const add = (a, b) => a + b
+
+const example = [1, 2, 3] |> reduce(add, 0) // 6
+```
+
+### `gen.skip(count)(iterator)`
+
+```js
+const {skip} = require('@zzzzbov/gen')
+// or
+const skip = require('@zzzzbov/gen/skip')
+```
+
+The `skip` function takes a `count` parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and skips the first `count` items in the `iterator` before yielding the rest of the items in `iterator`.
+
+#### Example
+
+```js
+const skip = require('@zzzzbov/gen/skip')
+
+const example = [1, 2, 3, 4, 5] |> skip(2)
+[...example] // [3, 4, 5]
+```
+
+### `gen.skipWhile(test)(iterator)`
+
+```js
+const {skipWhile} = require('@zzzzbov/gen')
+// or
+const skipWhile = require('@zzzzbov/gen/skipWhile')
+```
+
+The `skipWhile` function takes a `test` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and skips items in the `iterator` until the `test` is failed.
+
+#### Example
+
+```js
+const skipWhile = require('@zzzzbov/gen/skipWhile')
+
+const lessThanThree = n => n < 3
+
+const example = [1, 2, 3, 4, 5] |> skipWhile(lessThanThree)
+[...example] // [3, 4, 5]
+```
+
+### `gen.take(count)(iterator)`
+
+```js
+const {take} = require('@zzzzbov/gen')
+// or
+const take = require('@zzzzbov/gen/take')
+```
+
+The `take` function takes a `count` parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields the first `count` items in the `iterator`.
+
+#### Example
+
+```js
+const take = require('@zzzzbov/gen/take')
+
+const example = [1, 2, 3, 4, 5] |> take(3)
+[...example] // [1, 2, 3]
+```
+
+### `gen.takeWhile(test)(iterator)`
+
+```js
+const {takeWhile} = require('@zzzzbov/gen')
+// or
+const takeWhile = require('@zzzzbov/gen/takeWhile')
+```
+
+The `takeWhile` function takes a `test` function as a parameter and produces a new generator function. The new function accepts an `iterator` as a parameter and yields items in the `iterator` until the `test` is failed.
+
+#### Example
+
+```js
+const takeWhile = require('@zzzzbov/gen/takeWhile')
+
+const lessThanThree = n => n < 3
+
+const example = [1, 2, 3, 4, 5] |> takeWhile(lessThanThree)
+[...example] // [1, 2]
+```
+
+### `gen.unique(iterator)`
+
+```js
+const {unique} = require('@zzzzbov/gen')
+// or
+const unique = require('@zzzzbov/gen/unique')
+```
+
+The `unique` generator function takes an `iterator` and yields each unique value in the order they appear in the `iterator`.
+
+#### Example
+
+```js
+const unique = require('@zzzzbov/gen/unique')
+
+const example = [1, 2, 1, 3, 1] |> unique
+[...example] // [1, 2, 3]
+```
