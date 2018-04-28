@@ -19,6 +19,7 @@ describe(`gen index`, () => {
     'reduce',
     'skip',
     'skipWhile',
+    'splice',
     'take',
     'takeWhile',
     'unique'
