@@ -14,6 +14,7 @@ npm i @zzzzbov/gen
 * [`any`](#any)
 * [`append`](#append)
 * [`concat`](#concat)
+* [`count`](#count)
 * [`filter`](#filter)
 * [`integers`](#integers)
 * [`map`](#map)
@@ -117,7 +118,7 @@ The `append` function takes a collection of `items` as parameters and produces a
 const append = require('@zzzzbov/gen/append')
 
 const example = [1, 2, 3] |> append(4, 5, 6)
-[...example] // [1, 2, 3, 4, 5, 6]
+;[...example] // [1, 2, 3, 4, 5, 6]
 ```
 
 ### `concat`
@@ -138,8 +139,29 @@ The `concat` function takes a collection of `collection` as parameters and produ
 const concat = require('@zzzzbov/gen/concat')
 
 const example = [1, 2, 3] |> concat([4, 5, 6], [7, 8, 9])
-[...example] // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+;[...example] // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+### `count`
+
+`gen.count(iterator)`
+
+```js
+const {count} = require('@zzzzbov/gen')
+// or
+const count = require('@zzzzbov/gen/count')
+```
+
+The `count` function takes an `iterator` as a parameter and returns the count of how many items are contained in the iterator.
+
+#### Example
+
+```js
+const count = require('@zzzzbov/gen/count')
+
+;[1, 2, 3] |> count // 3
+```
+
 
 ### `filter`
 
@@ -155,7 +177,7 @@ const filter = require('@zzzzbov/gen/filter')
 const odd = n => n % 2
 
 const example = [1, 2, 3] |> filter(odd)
-[...example] // [1, 3]
+;[...example] // [1, 3]
 ```
 
 ### `integers`
@@ -174,7 +196,7 @@ The `integers` generator function takes optional `start` and `end` parameters. `
 const integers = require('@zzzzbov/gen/integers')
 
 const example = integers(1, 5)
-[...example] // [1, 2, 3, 4, 5]
+;[...example] // [1, 2, 3, 4, 5]
 ```
 
 `start` defaults to `0`
@@ -191,7 +213,7 @@ For generating a specific number of integers, pair the `integers` function with 
 const {integers, take} = require('@zzzzbov/gen')
 
 const example = integers() |> take(5)
-[...example] // [0, 1, 2, 3, 4]
+;[...example] // [0, 1, 2, 3, 4]
 ```
 
 ### `map`
@@ -214,7 +236,7 @@ const map = require('@zzzzbov/gen/map')
 const double = n => n * 2
 
 const example = [1, 2, 3] |> map(double)
-[...example] // [2, 4, 6]
+;[...example] // [2, 4, 6]
 ```
 
 ### `mapMany`
@@ -237,7 +259,7 @@ const mapMany = require('@zzzzbov/gen/mapMany')
 const pair = n => [n, -n]
 
 const example = [1, 2, 3] |> mapMany(pair)
-[...example] // [1, -1, 2, -2, 3, -3]
+;[...example] // [1, -1, 2, -2, 3, -3]
 ```
 
 ### `pipe`
@@ -288,7 +310,7 @@ The `prepend` function takes a collection of `items` as parameters and produces 
 const prepend = require('@zzzzbov/gen/prepend')
 
 const example = [4, 5, 6] |> prepend(1, 2, 3)
-[...example] // [1, 2, 3, 4, 5, 6]
+;[...example] // [1, 2, 3, 4, 5, 6]
 ```
 
 ### `reduce`
@@ -325,7 +347,7 @@ The `skip` function takes a `count` parameter and produces a new generator funct
 const skip = require('@zzzzbov/gen/skip')
 
 const example = [1, 2, 3, 4, 5] |> skip(2)
-[...example] // [3, 4, 5]
+;[...example] // [3, 4, 5]
 ```
 
 ### `skipWhile`
@@ -348,7 +370,7 @@ const skipWhile = require('@zzzzbov/gen/skipWhile')
 const lessThanThree = n => n < 3
 
 const example = [1, 2, 3, 4, 5] |> skipWhile(lessThanThree)
-[...example] // [3, 4, 5]
+;[...example] // [3, 4, 5]
 ```
 
 ### `take`
@@ -369,7 +391,7 @@ The `take` function takes a `count` parameter and produces a new generator funct
 const take = require('@zzzzbov/gen/take')
 
 const example = [1, 2, 3, 4, 5] |> take(3)
-[...example] // [1, 2, 3]
+;[...example] // [1, 2, 3]
 ```
 
 ### `takeWhile`
@@ -392,7 +414,7 @@ const takeWhile = require('@zzzzbov/gen/takeWhile')
 const lessThanThree = n => n < 3
 
 const example = [1, 2, 3, 4, 5] |> takeWhile(lessThanThree)
-[...example] // [1, 2]
+;[...example] // [1, 2]
 ```
 
 ### `unique`
@@ -413,5 +435,5 @@ The `unique` generator function takes an `iterator` and yields each unique value
 const unique = require('@zzzzbov/gen/unique')
 
 const example = [1, 2, 1, 3, 1] |> unique
-[...example] // [1, 2, 3]
+;[...example] // [1, 2, 3]
 ```
