@@ -1,6 +1,5 @@
-/* eslint-env mocha */
-
 const {expect} = require('chai')
+const {describe, it} = require('mocha')
 const append = require('../append')
 
 describe(`gen`, () => {

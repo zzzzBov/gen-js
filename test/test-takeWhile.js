@@ -1,6 +1,5 @@
-/* eslint-env mocha */
-
 const {expect} = require('chai')
+const {describe, it} = require('mocha')
 const takeWhile = require('../takeWhile')
 
 describe(`gen`, () => {
