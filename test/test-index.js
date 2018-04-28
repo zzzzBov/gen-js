@@ -1,6 +1,7 @@
 const {expect} = require('chai')
 const {describe, it} = require('mocha')
 const gen = require('../index')
+const pkg = require('../package')
 
 describe(`gen index`, () => {
   ;[
@@ -25,6 +26,12 @@ describe(`gen index`, () => {
     describe(fn, () => {
       it(`${fn} should be a function`, () => {
         expect(gen[fn]).to.be.a('function')
+      })
+
+      it(`${fn} should be included in the package.json file`, () => {
+        const result = pkg.files.includes(`${fn}.js`)
+
+        expect(result).to.equal(true)
       })
     })
   })
