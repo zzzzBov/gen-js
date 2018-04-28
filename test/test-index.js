@@ -8,6 +8,7 @@ describe(`gen index`, () => {
     'any',
     'append',
     'concat',
+    'count',
     'filter',
     'integers',
     'map',
