@@ -14,6 +14,7 @@
     "any.js",
     "append.js",
     "concat.js",
+    "count.js",
     "filter.js",
     "index.js",
     "integers.js",
