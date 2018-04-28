@@ -25,6 +25,7 @@
     "reduce.js",
     "skip.js",
     "skipWhile.js",
+    "splice.js",
     "take.js",
     "takeWhile.js",
     "unique.js"
