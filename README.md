@@ -24,6 +24,7 @@ npm i @zzzzbov/gen
 * [`reduce`](#reduce)
 * [`skip`](#skip)
 * [`skipWhile`](#skipWhile)
+* [`splice`](#splice)
 * [`take`](#take)
 * [`takeWhile`](#takeWhile)
 * [`unique`](#unique)
