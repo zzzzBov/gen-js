@@ -1,6 +1,6 @@
 {
   "name": "@zzzzbov/gen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "@zzzzbov/gen is a package of generator utility functions.",
   "main": "index.js",
   "scripts": {
