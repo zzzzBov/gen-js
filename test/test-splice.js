@@ -93,5 +93,11 @@ describe(`gen`, () => {
 
       expect(result).to.deep.equal([1, 2, 3, 10, 9, 8])
     })
+
+    it(`should splice in new items while removing deleted items`, () => {
+      const result = [...splice(1, 1, 2.1, 2.2, 2.3)([1, 2, 3])]
+
+      expect(result).to.deep.equal([1, 2.1, 2.2, 2.3, 3])
+    })
   })
 })
