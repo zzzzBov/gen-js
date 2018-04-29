@@ -373,6 +373,26 @@ const example = [1, 2, 3, 4, 5] |> skipWhile(lessThanThree)
 ;[...example] // [3, 4, 5]
 ```
 
+### `splice`
+
+`gen.splice(start, deleteCount, ...items)(iterator)`
+
+```js
+const {splice} = require('@zzzzbov/gen')
+// or
+const splice = require('@zzzzbov/gen/splice')
+```
+
+The `splice` function takes a `start` index, `deleteCount`, and optional additional `items` as parameters and produces a new generator function. The new function accepts an `iterator` as a parameter and splices in any new `items` at the `start` index. The generator will then skip over the number of items specified by `deleteCount` before yielding the rest of the collection from the `iterator`.
+
+#### Example
+
+```js
+const splice = require('@zzzzbov/gen/splice')
+
+const example = [1, 2, 3] |> splice(1, 1, 2.1, 2.2, 2.3)
+;[...example] // [1, 2.1, 2.2, 2.3, 3]
+
 ### `take`
 
 `gen.take(count)(iterator)`
