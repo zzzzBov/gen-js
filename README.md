@@ -393,6 +393,7 @@ const splice = require('@zzzzbov/gen/splice')
 
 const example = [1, 2, 3] |> splice(1, 1, 2.1, 2.2, 2.3)
 ;[...example] // [1, 2.1, 2.2, 2.3, 3]
+```
 
 ### `take`
 
