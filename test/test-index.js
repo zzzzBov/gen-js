@@ -1,5 +1,5 @@
-const {expect} = require('chai')
-const {describe, it} = require('mocha')
+const { expect } = require('chai')
+const { describe, it } = require('mocha')
 const gen = require('../index')
 const pkg = require('../package')
 

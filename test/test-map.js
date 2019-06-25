@@ -1,5 +1,5 @@
-const {expect} = require('chai')
-const {describe, it} = require('mocha')
+const { expect } = require('chai')
+const { describe, it } = require('mocha')
 const map = require('../map')
 
 describe(`gen`, () => {
