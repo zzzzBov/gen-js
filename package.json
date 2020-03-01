@@ -1,38 +1,40 @@
 {
   "name": "@zzzzbov/gen",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "@zzzzbov/gen is a package of generator utility functions.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "standard && mocha"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
   },
   "keywords": [],
   "author": "zzzzBov <zzzzBov@gmail.com> (https://zzzzbov.com/)",
   "license": "MIT",
+  "typings": "dist/index.d.ts",
   "files": [
-    "all.js",
-    "any.js",
-    "append.js",
-    "concat.js",
-    "count.js",
-    "filter.js",
-    "index.js",
-    "integers.js",
-    "map.js",
-    "mapMany.js",
-    "pipe.js",
-    "prepend.js",
-    "reduce.js",
-    "skip.js",
-    "skipWhile.js",
-    "splice.js",
-    "take.js",
-    "takeWhile.js",
-    "unique.js"
+    "dist"
   ],
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "module": "dist/gen.esm.js",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "standard": "^12.0.1"
+    "@types/jest": "^25.1.3",
+    "husky": "^4.2.3",
+    "tsdx": "^0.12.3",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
   }
 }
