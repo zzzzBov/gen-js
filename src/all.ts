@@ -1,8 +1,8 @@
 import { IPredicate } from './IPredicate'
 
-export const all = <T>(predicate: IPredicate<T> = _ => false) => (iter: Iterable<T>): boolean => {
+export const all = <T>(predicate: IPredicate<T> = _ => false) => (iterable: Iterable<T>): boolean => {
   let i = 0
-  for (const value of iter) {
+  for (const value of iterable) {
     if (!predicate(value, i++)) {
       return false
     }

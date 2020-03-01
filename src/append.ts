@@ -1,4 +1,4 @@
-export const append = <T>(...items: T[]) => function * (iter: Iterable<T>) {
-  yield * iter
+export const append = <T>(...items: T[]) => function * (iterable: Iterable<T>) {
+  yield * iterable
   yield * items
 }
