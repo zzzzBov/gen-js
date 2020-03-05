@@ -1,10 +1,10 @@
 export const splice = <T>(start: number, deleteCount: number, ...items: T[]) => {
   if (start < 0) {
-    throw new RangeError(`"start" must not be negative`)
+    throw new RangeError(`"start" must not be negative.`)
   }
 
   if (deleteCount < 0) {
-    throw new RangeError(`"deleteCount" must not be negative`)
+    throw new RangeError(`"deleteCount" must not be negative.`)
   }
 
   return function * (iterable: Iterable<T>) {
