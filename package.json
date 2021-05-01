@@ -1,22 +1,26 @@
 {
   "name": "@zzzzbov/gen",
   "version": "0.0.3",
+  "license": "MIT",
   "description": "@zzzzbov/gen is a package of generator utility functions.",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
-  "keywords": [],
-  "author": "zzzzBov <zzzzBov@gmail.com> (https://zzzzbov.com/)",
-  "license": "MIT",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "peerDependencies": {},
   "husky": {
     "hooks": {
@@ -29,12 +33,30 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "keywords": [],
+  "author": "zzzzBov <zzzzBov@gmail.com> (https://zzzzbov.com/)",
   "module": "dist/gen.esm.js",
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "maintained node versions"
+  ],
+  "size-limit": [
+    {
+      "path": "dist/gen.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/gen.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "@types/jest": "^25.1.3",
-    "husky": "^4.2.3",
-    "tsdx": "^0.12.3",
-    "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "husky": "^6.0.0",
+    "size-limit": "^4.10.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^3.9.9"
   }
 }
