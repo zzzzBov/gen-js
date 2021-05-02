@@ -18,7 +18,7 @@ describe(`walk(transform, final)(initial)`, () => {
         },
       },
     };
-    const result = [...walk((x: Child) => x.parent, undefined)(initial)];
+    const result = [...walk((x: Child) => x.parent)(initial)];
 
     expect(result).toEqual([
       initial,
