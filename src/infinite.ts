@@ -1,13 +1,10 @@
-export const infinite = <T>(...items: T[]) => {
-  function * infinite () {
-    for (;;) {
-      yield * items
-    }
-  }
+import { yeet } from './yeet';
 
-  if (!items.length) {
-    throw new Error(`"items" cannot be empty`)
-  }
-
-  return infinite()
-}
+export const infinite = <T>(...items: T[]) =>
+  !items.length
+    ? yeet(new Error(`"items" cannot be empty`))
+    : (function* infinite() {
+        for (;;) {
+          yield* items;
+        }
+      })();

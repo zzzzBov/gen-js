@@ -1,32 +1,29 @@
-export const splice = <T>(start: number, deleteCount: number, ...items: T[]) => {
-  if (start < 0) {
-    throw new RangeError(`"start" must not be negative.`)
-  }
+import { yeet } from './yeet';
 
-  if (deleteCount < 0) {
-    throw new RangeError(`"deleteCount" must not be negative.`)
-  }
+export const splice = <T>(start: number, deleteCount: number, ...items: T[]) =>
+  start < 0
+    ? yeet(new RangeError(`"start" must not be negative.`))
+    : deleteCount < 0
+    ? yeet(new RangeError(`"deleteCount" must not be negative.`))
+    : function*(iterable: Iterable<T>) {
+        const end = start + deleteCount;
 
-  return function * (iterable: Iterable<T>) {
-    const end = start + deleteCount
+        let i = 0;
+        for (const value of iterable) {
+          if (i < start) {
+            yield value;
+          } else if (i === start) {
+            yield* items;
+          }
 
-    let i = 0
-    for (const value of iterable) {
-      if (i < start) {
-        yield value
-      } else if (i === start) {
-        yield * items
-      }
+          if (i >= end) {
+            yield value;
+          }
 
-      if (i >= end) {
-        yield value
-      }
+          ++i;
+        }
 
-      ++i
-    }
-
-    if (start >= i) {
-      yield * items
-    }
-  }
-}
+        if (start >= i) {
+          yield* items;
+        }
+      };

@@ -1,14 +1,13 @@
-export const skip = <T>(count: number) => {
-  if (count < 0) {
-    throw new RangeError(`"count" must not be negative.`)
-  }
+import { yeet } from './yeet';
 
-  return function * (iterable: Iterable<T>) {
-    let i = 0
-    for (const value of iterable) {
-      if (i++ >= count) {
-        yield value
-      }
-    }
-  }
-}
+export const skip = <T>(count: number) =>
+  count < 0
+    ? yeet(new RangeError(`"count" must not be negative.`))
+    : function*(iterable: Iterable<T>) {
+        let i = 0;
+        for (const value of iterable) {
+          if (i++ >= count) {
+            yield value;
+          }
+        }
+      };
