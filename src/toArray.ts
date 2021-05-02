@@ -1,3 +1,1 @@
-export const toArray = <T>(iterable: Iterable<T>) => (
-  [...iterable]
-)
+export const toArray = <T>(iterable: Iterable<T>) => [...iterable];
