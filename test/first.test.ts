@@ -8,19 +8,19 @@ describe(`first(predicate)(iterable)`, () => {
 
     expect(undefinedResult).toBeUndefined();
 
-    const oneResult = head([1]);
+    const oneResult = head([1, 2, 3]);
 
     expect(oneResult).toBe(1);
   });
 
-  it(`should check if any values match the provided test`, () => {
+  it(`should check if any values match the provided test, and return the first one`, () => {
     const firstOdd = first((x: number) => x % 2);
 
     const undefinedResult = firstOdd([2, 4, 6]);
 
     expect(undefinedResult).toBeUndefined();
 
-    const threeResult = firstOdd([2, 3, 4]);
+    const threeResult = firstOdd([2, 3, 4, 5, 6]);
 
     expect(threeResult).toBe(3);
   });
