@@ -8,7 +8,7 @@ describe(`reduce(reducer, initial)(iterable)`, () => {
   });
 
   it(`should seed the reduction using the "initial" value`, () => {
-    const output = reduce<number>((acc = 0, v) => acc + v, 10)([1, 2, 3]);
+    const output = reduce<number>((acc, v) => acc + v, 10)([1, 2, 3]);
 
     expect(output).toBe(16);
   });
