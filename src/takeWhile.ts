@@ -1,4 +1,4 @@
-import { IPredicate } from './IPredicate';
+import type { IPredicate } from './IPredicate';
 
 export const takeWhile = <T>(predicate: IPredicate<T>) =>
   function*(iterable: Iterable<T>) {

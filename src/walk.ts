@@ -1,4 +1,4 @@
-import { ITransform } from './ITransform';
+import type { ITransform } from './ITransform';
 
 export const walk: {
   <T>(transform: ITransform<T, T>, final: T): (initial: T) => Iterable<T>;

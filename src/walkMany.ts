@@ -1,4 +1,4 @@
-import { ITransform } from './ITransform';
+import type { ITransform } from './ITransform';
 
 export enum WalkDirection {
   BreadthFirst,

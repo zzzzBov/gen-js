@@ -1,4 +1,4 @@
-import { IReducer } from './IReducer';
+import type { IReducer } from './IReducer';
 
 export const reduce: {
   <T, U = T>(reducer: IReducer<T, U>, initial: U): (iterable: Iterable<T>) => U;

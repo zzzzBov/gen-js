@@ -1,4 +1,4 @@
-import { IPredicate } from './IPredicate';
+import type { IPredicate } from './IPredicate';
 
 export const all = <T>(predicate: IPredicate<T> = _ => false) => (
   iterable: Iterable<T>
